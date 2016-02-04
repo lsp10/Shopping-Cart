@@ -1,0 +1,32 @@
+
+[
+	{
+	"id": "1",
+	"product_name": "Cool T-Shirt",
+	"product_code": "TSH1",
+	"product_image": "tshirt-1.jpg",
+	"product_price": "8.50"	
+	},
+	{
+	"id": "2",
+	"product_name": "Nice T-Shirt",
+	"product_code": "TSH2",
+	"product_image": "tshirt-2.jpg",
+	"product_price": "5.50"	
+	},
+	{
+	"id": "3",
+	"product_name": "Red T-Shirt",
+	"product_code": "TSH3",
+	"product_image": "tshirt-3.jpg",
+	"product_price": "3.70"	
+	},
+	{
+	"id": "4",
+	"product_name": "Mega T-Shirt",
+	"product_code": "TSH4",
+	"product_image": "tshirt-4.jpg",
+	"product_price": "10.99"	
+	}
+]
+
