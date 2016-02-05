@@ -2,4 +2,14 @@
 	border: solid 1px grey;
 	margin: 5px;
 	padding: 5px;
+	text-align: center;
+}
+
+.qinput {
+	width: 20%;
+	margin: 5px;
+}
+
+.img-responsive {
+	margin: auto;
 }

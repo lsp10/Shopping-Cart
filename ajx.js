@@ -6,9 +6,9 @@ $(document).ready(function(){
 			console.log(res[i].product_name);
 			$('.row').append(
 
-				'<div class="col-sm-3"><div class="prod"><img class="img-responsive" src="images/' + res[i].product_image+
+				'<div class="col-xs-6 col-sm-4 col-md-3"><div class="prod"><img class="img-responsive" src="images/' + res[i].product_image+
 				'" alt="'+res[i].product_name+'"/><p>' +
-				res[i].product_name +'</p><span>Quantity:</span><input class="col-sm-3" type="number"><button>Add to Cart</button></div></div>');			
+				res[i].product_name +'</p><span>Quantity:</span><input class="qinput" type="number"><button>Add to Cart</button></div></div>');			
 		}
 	});
 })
