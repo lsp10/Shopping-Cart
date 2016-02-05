@@ -6,9 +6,9 @@ $(document).ready(function(){
 			console.log(res[i].product_name);
 			$('.row').append(
 
-				'<div class="col-sm-3"><img src="images/' + res[i].product_image+
-				'" alt="'+res[i].product_name+'"/>' +
-				res[i].product_name +'</div>');			
+				'<div class="col-sm-3"><div class="prod"><img class="img-responsive" src="images/' + res[i].product_image+
+				'" alt="'+res[i].product_name+'"/><p>' +
+				res[i].product_name +'</p></div></div>');			
 		}
 	});
 })
