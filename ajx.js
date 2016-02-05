@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 				'<div class="col-sm-3"><div class="prod"><img class="img-responsive" src="images/' + res[i].product_image+
 				'" alt="'+res[i].product_name+'"/><p>' +
-				res[i].product_name +'</p></div></div>');			
+				res[i].product_name +'</p><span>Quantity:</span><input class="col-sm-3" type="number"><button>Add to Cart</button></div></div>');			
 		}
 	});
 })
