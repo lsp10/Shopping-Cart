@@ -1,15 +1,45 @@
-.prod {
+
+.theCart{
+	display: block;
+	position: absolute;
+	z-index: 99;
+	background-color: white;
+	border: solid 1px grey;
+	right: 5%;
+}
+
+.add-to-cart {
 	border: solid 1px grey;
 	margin: 5px;
 	padding: 5px;
 	text-align: center;
 }
 
-.qinput {
-	width: 20%;
+.qty {
+	width: 15%;
 	margin: 5px;
 }
 
 .img-responsive {
 	margin: auto;
+}
+
+.glyphicon-shopping-cart {
+	font-size: 20px;
+}
+
+.cart {
+	margin: 10px;
+}
+
+.shopping-cart{
+	text-align: center;
+}
+
+th {
+	text-align: center;
+}
+
+table {
+	width: 100%;
 }

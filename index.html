@@ -9,13 +9,41 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<div class=" container">
+		<div style="text-align:right">
+			<button class="cart">
+				<span class="glyphicon glyphicon-shopping-cart"></span>
+				<span class="nr-of-products"></span>
+			</button>
+		</div>
+		<div class="col-md-6 col-sm-8 col-xs-10 theCart">
+			<table class="shopping-cart table-condensed">
+					<thead>
+						<tr>
+							<th>Item</th>
+							<th>Qty</th>
+							<th>Price per Item</th>
+							<th>Total Price</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+					<tfoot>
+						<tr>
+							<th colspan="3">Total:</th>
+							<td id="stotal"></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		<!-- <button id="empty-cart">Empty Cart</button> -->
+	</div>
 	<div class="container">
 		<div class="row">
 		</div>
 	</div>
 
-	
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="ajx.js"></script>
+	<!--<script src="shop.js"></script>-->
 </body>
 </html>
