@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	
+// ----------------ALL THE FUNCTIONS THAT ARE USED
+
 	//using the data from json to get the products 
-	loadOnPage = function(productData,j){
+	function loadOnPage(productData,j){
 		$('.row').append(
 			'<div class="col-xs-6 col-sm-4 col-md-3">'+
 				'<div class="add-to-cart" data-id="'+productData[j].id +
@@ -19,28 +21,23 @@ $(document).ready(function(){
 			'</div>');			
 	};
 
-	// check if local storage exists
-	if (localStorage.cart) {
-		var cart = JSON.parse(localStorage.getItem('cart'));
-	}else{
-		var cart = [];
-		localStorage.setItem('cart', JSON.stringify(cart));
+	// add new items to the localStorage & display all products in cart after adding
+	function addToCart(item) {
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    numberOfProducts(cart.length);
+    // in the html
+    $('.shopping-cart tbody').html("");
+    displayProductsinCart();
+    console.log(cart);
 	};
-
-	// cart table animation
-	$('.theCart').hide();	
-	$('.cart').click(function(e){
-		$('.theCart').fadeToggle('show');
-	});
-
-	// display number of products in cart on page load
-	numberOfProducts(cart.length);
 
 	//the number of items in the cart 
 	function numberOfProducts(nr){
 		$('.nr-of-products').html(nr);
 	};
 
+	// creating object for the new item added to the cart
 	function newProduct(itemData){
 	  var quantity=parseInt($(itemData).find('input.qty').val());
 	  if (!isNaN(quantity)) {
@@ -55,11 +52,8 @@ $(document).ready(function(){
 	      return;
 	   };
 	};
-	
-	// populate the table of the shopping cart
-	displayProductsinCart();
-	  var total = 0;
 
+	// displays the table with products
 	function displayProductsinCart() {
 		$('.shopping-cart tbody').html("");
 	  total = 0;
@@ -76,12 +70,38 @@ $(document).ready(function(){
 		};
 	}
 
+	// calculate the total amount for the cart
 	function cartTotalAmount(prod){
 		var totalPerItem=parseFloat(prod.price * prod.quantity);
 		total=total+totalPerItem;
 		$('#stotal').html(total.toFixed(2)+" &#8364;");
 	};
 
+// ----------------WILL EXECUTE ON PAGE LOAD
+
+
+	// cart table animation
+	$('.theCart').hide();	
+	$('.cart').click(function(e){
+		$('.theCart').fadeToggle('show');
+	});
+
+	// check if local storage exists
+	if (localStorage.cart) {
+		var cart = JSON.parse(localStorage.getItem('cart'));
+	}else{
+		var cart = [];
+		localStorage.setItem('cart', JSON.stringify(cart));
+	};
+
+	// display number of products in cart on page load
+	numberOfProducts(cart.length);
+		
+	// populate the table of the shopping cart
+	displayProductsinCart();
+	  var total = 0;
+
+	// to remve all items from th cart
 	$('.deleteAll').click(function(e){
 		cart = [];
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -90,6 +110,7 @@ $(document).ready(function(){
 		numberOfProducts(cart.length);
 	});
 
+	
 	//put the pictures and data on the page 
 	$.getJSON('data.json', function(res){
 		var sz=res.length;
@@ -98,26 +119,12 @@ $(document).ready(function(){
 			loadOnPage(res,i);
 		};
 
-
 		// add to cart button
 		$('.btn-add').click(function(e) {
 	    var dta = $(this).parent();	
 	    newProduct(dta);
 	    addToCart(newProduct(dta));
 		});
-
-		function addToCart(item) {
-      cart.push(item);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      numberOfProducts(cart.length);
-			
-
-      // in the html
-      $('.shopping-cart tbody').html("");
-      displayProductsinCart(cart[i]);
-      console.log(cart);
-		};
-		
 
 	});
 
