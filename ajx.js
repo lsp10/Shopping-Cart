@@ -23,13 +23,20 @@ $(document).ready(function(){
 
 	// add new items to the localStorage & display all products in cart after adding
 	function addToCart(item) {
-    cart.push(item);
+    if (checkDuplicates(item)) {
+    	for (var i=0;i<cart.length;i++){
+				if(item.id === cart[i].id){
+					cart[i].quantity = cart[i].quantity + item.quantity;
+				};
+			};
+    }else {
+    	cart.push(item);
+    };
     localStorage.setItem('cart', JSON.stringify(cart));
     numberOfProducts(cart.length);
     // in the html
     $('.shopping-cart tbody').html("");
     displayProductsinCart();
-    console.log(cart);
 	};
 
 	//the number of items in the cart 
@@ -77,6 +84,18 @@ $(document).ready(function(){
 		$('#stotal').html(total.toFixed(2)+" &#8364;");
 	};
 
+	//check for duplicates before adding the new object(product) 
+	function checkDuplicates (newObj) {
+		if (cart.length>0){
+			for(var i=0; i<cart.length; i++){
+				if(newObj.id === cart[i].id){
+					return true;
+				}
+			}
+		}
+	};
+
+
 // ----------------WILL EXECUTE ON PAGE LOAD
 
 
@@ -99,7 +118,7 @@ $(document).ready(function(){
 		
 	// populate the table of the shopping cart
 	displayProductsinCart();
-	  var total = 0;
+	var total = 0;
 
 	// to remve all items from th cart
 	$('.deleteAll').click(function(e){
