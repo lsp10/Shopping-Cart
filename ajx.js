@@ -160,10 +160,10 @@ $(document).ready(function(){
 			var allDeleteButtons = document.querySelectorAll('.delete-btn');
 			for (var i = 0; i<allDeleteButtons.length; i++){
 				$(allDeleteButtons[i]).click(function(e){		
-					var idodthething = this.id;
+					var buttonId = this.id;
 					// the problem is when the table rows are deleted allDeleteButtons has another value
 					for(var j=0; j<cart.length; j++){
-						if(cart[j].id == idodthething){
+						if(cart[j].id == buttonId){
 							cart.splice(j,1);
 							localStorage.setItem('cart', JSON.stringify(cart));
 						}
