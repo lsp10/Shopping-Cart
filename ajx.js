@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 // ----------------ALL THE FUNCTIONS THAT ARE USED
 
-	//using the data from json to get the products 
+	//using the data from json file to get the products 
 	function loadOnPage(productData,j){
 		$('.row').append(
 			'<div class="col-xs-6 col-sm-4 col-md-3">'+
@@ -39,7 +39,7 @@ $(document).ready(function(){
     displayProductsinCart();
 	};
 
-	//the number of items in the cart 
+	//show the number of items in the cart 
 	function numberOfProducts(nr){
 		$('.nr-of-products').html(nr);
 	};
@@ -71,6 +71,7 @@ $(document).ready(function(){
 					'<td>'+cart[i].quantity+'</td>'+
 					'<td>'+cart[i].price+' &#8364;</td>'+
 					'<td>'+(cart[i].price * cart[i].quantity).toFixed(2) +' &#8364;</td>'+
+					'<td><button class="delete-btn" id="'+cart[i].id+'">Delete</button></td>'+
 				'</tr>');
   		
   		cartTotalAmount(cart[i]);
@@ -96,6 +97,8 @@ $(document).ready(function(){
 	};
 
 
+
+
 // ----------------WILL EXECUTE ON PAGE LOAD
 
 
@@ -104,6 +107,7 @@ $(document).ready(function(){
 	$('.cart').click(function(e){
 		$('.theCart').fadeToggle('show');
 	});
+
 
 	// check if local storage exists
 	if (localStorage.cart) {
@@ -145,6 +149,30 @@ $(document).ready(function(){
 	    addToCart(newProduct(dta));
 		});
 
+		// update the table of the cart
+		$('body').click(function(e){
+			buttonsDelete();
+		});
+
+			// the buttons to delete one item in the cart
+		function buttonsDelete(){
+			displayProductsinCart();
+			var allDeleteButtons = document.querySelectorAll('.delete-btn');
+			for (var i = 0; i<allDeleteButtons.length; i++){
+				$(allDeleteButtons[i]).click(function(e){		
+					var idodthething = this.id;
+					// the problem is when the table rows are deleted allDeleteButtons has another value
+					for(var j=0; j<cart.length; j++){
+						if(cart[j].id == idodthething){
+							cart.splice(j,1);
+							localStorage.setItem('cart', JSON.stringify(cart));
+						}
+					}		
+					$('#stotal').html("");
+					numberOfProducts(cart.length);
+				});
+			};
+		};
 	});
 
 })
