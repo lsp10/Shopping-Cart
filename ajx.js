@@ -16,7 +16,7 @@ $(document).ready(function(){
 					'<p>Price: '+productData[j].product_price +' &#8364;</p>'+
 					'<label>Quantity:</label>'+
 					'<input class="qty" value="1">'+
-					'<button class="btn-add">Add to Cart</button>'+
+					'<button class="btn-add btn btn-default">Add to Cart</button>'+
 				'</div>'+
 			'</div>');			
 	};
@@ -71,7 +71,7 @@ $(document).ready(function(){
 					'<td>'+cart[i].quantity+'</td>'+
 					'<td>'+cart[i].price+' &#8364;</td>'+
 					'<td>'+(cart[i].price * cart[i].quantity).toFixed(2) +' &#8364;</td>'+
-					'<td><button class="delete-btn" id="'+cart[i].id+'">Delete</button></td>'+
+					'<td><button class="delete-btn btn btn-default" id="'+cart[i].id+'">Delete</button></td>'+
 				'</tr>');
   		
   		cartTotalAmount(cart[i]);
