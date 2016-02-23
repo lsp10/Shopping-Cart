@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>
-		Ajax Shopping Cart
-	</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <title>
+    Ajax Shopping Cart
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class=" container">
-		<div style="text-align:right">
-			<button class="cart btn btn-default">
-				<span class="glyphicon glyphicon-shopping-cart"></span>
-				<span class="nr-of-products"></span>
-			</button>
-		</div>
-		<div class="col-md-6 col-sm-8 col-xs-10 theCart">
-			<table class="shopping-cart table-condensed">
-					<thead>
-						<tr>
-							<th>Item</th>
-							<th>Qty</th>
-							<th>Price per Item</th>
-							<th>Total Price</th>
-							<th>Delete button</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-					<tfoot>
-						<tr>
-							<th colspan="3">Total:</th>
-							<td id="stotal"></td>
-						</tr>
-					</tfoot>
-				</table>
-				<button class="deleteAll btn btn-default">Empty Cart</button>
-			</div>
-		<!-- <button id="empty-cart">Empty Cart</button> -->
-	</div>
-	<div class="container">
-		<div class="row">
-		</div>
-	</div>
+  <div class=" container">
+    <div style="text-align:right">
+      <button class="cart btn btn-default">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+        <span class="nr-of-products"></span>
+      </button>
+    </div>
+    <div class="col-md-6 col-sm-8 col-xs-10 theCart">
+      <table class="shopping-cart table-condensed">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Price per Item</th>
+              <th>Total Price</th>
+              <th>Delete button</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="3">Total:</th>
+              <td id="stotal"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <button class="deleteAll btn btn-default">Empty Cart</button>
+      </div>
+    <!-- <button id="empty-cart">Empty Cart</button> -->
+  </div>
+  <div class="container">
+    <div class="row">
+    </div>
+  </div>
 
-	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="effects.js"></script>
-	<script src="getData.js"></script>
-	<script src="cart.js"></script>
-	<!--<script src="shop.js"></script>-->
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="effects.js"></script>
+  <script src="getData.js"></script>
+  <script src="cart.js"></script>
+  <!--<script src="shop.js"></script>-->
 </body>
 </html>
